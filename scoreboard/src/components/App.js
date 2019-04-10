@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Header from './Header';
 import Player from './Player';
 import AddPlayerForm from './AddPlayerForm';
+// import Stopwatch from "./Stopwatch";
 
 class App extends Component {
   state = {
@@ -24,11 +25,13 @@ class App extends Component {
   }
 
   handleAddPlayer = (name) => {
-    this.setState({
-      players: [
-        ...this.state.players,
-        {name, score: 0, id: this.prevPlayerId+=1}
-      ]
+    this.setState( prevState => {
+      return {
+        players: [
+          ...prevState.players,
+          {name, score: 0, id: this.prevPlayerId+=1}
+        ]
+      }
     });
   }
 
